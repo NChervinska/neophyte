@@ -15,6 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://pacific-spire-69544.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -31,6 +32,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.24.0",
     "cross-env": "^7.0.2"
   }
 }
