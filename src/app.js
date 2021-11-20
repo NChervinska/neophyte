@@ -14,18 +14,19 @@ const App = () => {
     if (isLoading) {
         return <Loading/>;
     }
-    const json = JSON.stringify({
-        email: 'Finn@gmail.com',
-        password: '121212qQ_',
-        password2: '121212qQ_',
-        first_name: 'Steve',
-        last_name: 'Jobs'
-    });
-    const res =axios.post('https://pacific-spire-69544.herokuapp.com/register',json,{
-        withCredentials: false})
-    try {
-        console.log(res);
-    }finally{}
+    axios.post( '/auth/register/', 
+    {
+        baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
+        email: 'rgbdf@gmail.com',
+        password: 'Qwsf2f_',
+        password2: 'Qwsf2f_',
+        first_name: 'Name',
+        last_name: 'Jake',  
+        headers: { "Content-Type": "multipart/form-data" },}).then(res => {
+            console.log(res); 
+            console.log(res.data);
+        }).catch(err => {console.log(err.message);});
+
     return (
         <div id="app" className="d-flex flex-column h-100">
             <NavBar/>
