@@ -14,7 +14,7 @@ const App = () => {
     if (isLoading) {
         return <Loading/>;
     }
-    axios.post( '/auth/register/', 
+   /* axios.post( '/auth/register/', 
     {
         baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
         email: 'rgbdf@gmail.com',
@@ -22,6 +22,16 @@ const App = () => {
         password2: 'Qwsf2f_',
         first_name: 'Name',
         last_name: 'Jake',  
+        headers: { "Content-Type": "multipart/form-data" },}).then(res => {
+            console.log(res); 
+            console.log(res.data);
+        }).catch(err => {console.log(err.message);});*/
+
+        axios.post( '/auth/login/', 
+    {
+        baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
+        email: 'anastasiia.chervinska@nure.ua',
+        password: 'Qazzz12!',
         headers: { "Content-Type": "multipart/form-data" },}).then(res => {
             console.log(res); 
             console.log(res.data);
