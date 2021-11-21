@@ -1,19 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { NavBar, Footer, Loading } from "./components";
 import { Home, Profile, ExternalApi } from "./views";
-import ProtectedRoute from "./auth/protected-route";
+import ProtectedRoute from "./auth/protected-route"; 
+import Login from "./components/login";
+import Registration from "./components/registration";
+import Modal from './modal_dialog/modal';
 
 import "./app.css";
 
 const App = () => {
   const { isLoading } = useAuth0();
 
-  if (isLoading) {
-    return <Loading />;
-  }
+ // if (isLoading) {
+ //   return <Loading />;
+  //}
+
+  const [modalLoginActive, setModalLoginActive] = useState(true);
+  const [modalRegistrationActive, setModalRegistrationActive] = useState(false);
+  
 
   return (
     <div id="app" className="d-flex flex-column h-100">
@@ -24,7 +31,15 @@ const App = () => {
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
         </Switch>
-      </div>
+      </div> 
+      <button className='openm' onClick={() => setModalLoginActive(true)}>Login</button>
+      <Modal active={modalLoginActive} setActive={setModalLoginActive}>
+        <Login/>
+      </Modal> 
+      <button className='openm' onClick={() => setModalRegistrationActive(true)}>Registration</button>
+      <Modal active={modalRegistrationActive} setActive={setModalRegistrationActive}>
+        <Registration/>
+      </Modal> 
       <Footer />
     </div>
   );
