@@ -37,14 +37,11 @@ class Login extends React.Component {
 
     render(){
         return (
-            <div className={"fieldList"}>
+            <div className="fieldList">
                 <form onSubmit={this.onSubmit}>
-                    <label>Email:
-                        <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
-                    </label>
-                    <label>Password:
-                        <input type="password" value={this.state.password} onChange={this.onChangedPassword}/>
-                    </label>
+                        <input type="email" placeholder="Email" name={"login"} value={this.state.email} onChange={this.onChangedEmail}/>
+                        <input type="password" placeholder="Password" value={this.state.password} onChange={this.onChangedPassword}/>
+
                     <input type="submit" value="LOGIN"/>
                 </form> 
             </div>

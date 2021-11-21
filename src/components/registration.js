@@ -52,23 +52,14 @@ class Registration extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className={"fieldList"}>
                 <form onSubmit={this.onSubmit}>
-                    <label>Email:
-                        <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
-                    </label>
-                    <label>Password:
-                        <input type="password" value={this.state.password} onChange={this.onChangedPassword}/>
-                    </label>
-                    <label>Password2:
-                        <input type="password" value={this.state.password2} onChange={this.onChangedPassword2}/>
-                    </label>
-                    <label>First Name:
-                        <input type="text" value={this.state.first_name} onChange={this.onChangedFirstName}/>
-                    </label>
-                    <label>Last Name:
-                        <input type="text" value={this.state.last_name} onChange={this.onChangedLastName}/>
-                    </label>
+                        <input type="email" placeholder="Email" value={this.state.email} onChange={this.onChangedEmail}/>
+                        <input type="password" placeholder="Password" value={this.state.password} onChange={this.onChangedPassword}/>
+                        <input type="password" placeholder="Repeat password" value={this.state.password2} onChange={this.onChangedPassword2}/>
+                        <input type="text" placeholder="First name" value={this.state.first_name} onChange={this.onChangedFirstName}/>
+                        <input type="text" placeholder="Last name" value={this.state.last_name} onChange={this.onChangedLastName}/>
+                  <p></p>
                     <input type="submit" value="REGISTER"/>
                 </form> 
             </div>
