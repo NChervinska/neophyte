@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { Route, Switch } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 
 import { NavBar, Footer, Loading } from "./components";
 import { Home, Profile, ExternalApi } from "./views";
@@ -12,13 +11,11 @@ import Modal from './modal_dialog/modal';
 import "./app.css";
 
 const App = () => {
-  const { isLoading } = useAuth0();
+  const token = localStorage.getItem("token"); 
+  const isAuth = token != null;
+  console.log(isAuth);
 
- // if (isLoading) {
- //   return <Loading />;
-  //}
-
-  const [modalLoginActive, setModalLoginActive] = useState(true);
+  const [modalLoginActive, setModalLoginActive] = useState(!isAuth);
   const [modalRegistrationActive, setModalRegistrationActive] = useState(false);
   
 
@@ -32,14 +29,21 @@ const App = () => {
           <ProtectedRoute path="/external-api" component={ExternalApi} />
         </Switch>
       </div> 
-      <button className='openm' onClick={() => setModalLoginActive(true)}>Login</button>
-      <Modal active={modalLoginActive} setActive={setModalLoginActive}>
-        <Login/>
-      </Modal> 
-      <button className='openm' onClick={() => setModalRegistrationActive(true)}>Registration</button>
-      <Modal active={modalRegistrationActive} setActive={setModalRegistrationActive}>
-        <Registration/>
-      </Modal> 
+      { !isAuth &&
+        <div>
+          <button className='open-log' onClick={() => setModalLoginActive(true)}>Login</button>
+          <Modal active={modalLoginActive} setActive={setModalLoginActive}>
+            <Login></Login>
+          </Modal> 
+          <button className='open' onClick={() => setModalRegistrationActive(true)}>Registration</button>
+          <Modal active={modalRegistrationActive} setActive={setModalRegistrationActive}>
+            <Registration></Registration>
+          </Modal> 
+        </div>
+      } 
+      { isAuth && 
+        <button onClick={() => localStorage.removeItem("token")}>Logout</button> 
+      }
       <Footer />
     </div>
   );

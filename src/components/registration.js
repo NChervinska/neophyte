@@ -11,7 +11,7 @@ class Registration extends React.Component {
         this.onChangedPassword2 = this.onChangedPassword2.bind(this);
         this.onChangedFirstName = this.onChangedFirstName.bind(this);
         this.onChangedLastName = this.onChangedLastName.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.onSubmitReg = this.onSubmitReg.bind(this);
     }
 
     onChangedEmail = event => {
@@ -30,7 +30,7 @@ class Registration extends React.Component {
         this.setState({last_name: event.target.value});
     }
 
-    onSubmit (event) {  
+    onSubmitReg (event) {  
         console.log(this.state);
         axios.post( '/auth/register/', {
             baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
@@ -43,6 +43,8 @@ class Registration extends React.Component {
             .then(res => {
                 console.log(res); 
                 console.log(res.data);
+                //Todo
+                localStorage.setItem("token", res.data.access);
             }).catch(err => {
                 console.log(err.message);
                 alert("Incorrect data");
@@ -52,8 +54,8 @@ class Registration extends React.Component {
 
     render(){
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
+            <div className="Registration">
+                <form onSubmit={this.onSubmitReg} id='regForm'>
                     <label>Email:
                         <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
                     </label>
@@ -69,7 +71,7 @@ class Registration extends React.Component {
                     <label>Last Name:
                         <input type="text" value={this.state.last_name} onChange={this.onChangedLastName}/>
                     </label>
-                    <input type="submit" value="REGISTER"/>
+                    <input id='regs' type="submit" value="REGISTER"/>
                 </form> 
             </div>
         );

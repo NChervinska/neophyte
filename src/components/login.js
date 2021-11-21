@@ -8,7 +8,7 @@ class Login extends React.Component {
 
         this.onChangedEmail = this.onChangedEmail.bind(this);
         this.onChangedPassword = this.onChangedPassword.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.onSubmitLog = this.onSubmitLog.bind(this);
     }
 
     onChangedEmail = event => {
@@ -18,7 +18,7 @@ class Login extends React.Component {
         this.setState({password: event.target.value});
     }
 
-    onSubmit (event) {  
+    onSubmitLog (event) {  
         console.log(this.state);
         axios.post( '/auth/login/', {
             baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
@@ -28,6 +28,7 @@ class Login extends React.Component {
             .then(res => {
                 console.log(res); 
                 console.log(res.data);
+                localStorage.setItem("token", res.data.access);
             }).catch(err => {
                 console.log(err.message);
                 alert("Incorrect data");
@@ -37,15 +38,15 @@ class Login extends React.Component {
 
     render(){
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
+            <div className="Login">
+                <form onSubmit={this.onSubmitLog} id='logForm'>
                     <label>Email:
                         <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
                     </label>
                     <label>Password:
                         <input type="password" value={this.state.password} onChange={this.onChangedPassword}/>
                     </label>
-                    <input type="submit" value="LOGIN"/>
+                    <input id='logs' type="submit" value="LOGIN"/>
                 </form> 
             </div>
         );
