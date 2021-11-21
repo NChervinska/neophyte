@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import "./login.css"
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +37,7 @@ class Login extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className={"fieldList"}>
                 <form onSubmit={this.onSubmit}>
                     <label>Email:
                         <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
