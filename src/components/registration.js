@@ -11,7 +11,7 @@ class Registration extends React.Component {
         this.onChangedPassword2 = this.onChangedPassword2.bind(this);
         this.onChangedFirstName = this.onChangedFirstName.bind(this);
         this.onChangedLastName = this.onChangedLastName.bind(this);
-        this.onSubmitReg = this.onSubmitReg.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChangedEmail = event => {
@@ -30,7 +30,7 @@ class Registration extends React.Component {
         this.setState({last_name: event.target.value});
     }
 
-    onSubmitReg (event) {  
+    onSubmit(event) {  
         console.log(this.state);
         axios.post( '/auth/register/', {
             baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
@@ -54,24 +54,15 @@ class Registration extends React.Component {
 
     render(){
         return (
-            <div className="Registration">
-                <form onSubmit={this.onSubmitReg} id='regForm'>
-                    <label>Email:
-                        <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
-                    </label>
-                    <label>Password:
-                        <input type="password" value={this.state.password} onChange={this.onChangedPassword}/>
-                    </label>
-                    <label>Password2:
-                        <input type="password" value={this.state.password2} onChange={this.onChangedPassword2}/>
-                    </label>
-                    <label>First Name:
-                        <input type="text" value={this.state.first_name} onChange={this.onChangedFirstName}/>
-                    </label>
-                    <label>Last Name:
-                        <input type="text" value={this.state.last_name} onChange={this.onChangedLastName}/>
-                    </label>
-                    <input id='regs' type="submit" value="REGISTER"/>
+            <div className={"fieldList"}>
+                <form onSubmit={this.onSubmit}>
+                    <input type="email" placeholder="Email" value={this.state.email} onChange={this.onChangedEmail}/>
+                    <input type="password" placeholder="Password" value={this.state.password} onChange={this.onChangedPassword}/>
+                    <input type="password" placeholder="Repeat password" value={this.state.password2} onChange={this.onChangedPassword2}/>
+                    <input type="text" placeholder="First name" value={this.state.first_name} onChange={this.onChangedFirstName}/>
+                    <input type="text" placeholder="Last name" value={this.state.last_name} onChange={this.onChangedLastName}/>
+                    <p></p>
+                    <input type="submit" value="REGISTER"/>
                 </form> 
             </div>
         );

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import "./login.css"
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -8,7 +8,7 @@ class Login extends React.Component {
 
         this.onChangedEmail = this.onChangedEmail.bind(this);
         this.onChangedPassword = this.onChangedPassword.bind(this);
-        this.onSubmitLog = this.onSubmitLog.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChangedEmail = event => {
@@ -18,7 +18,7 @@ class Login extends React.Component {
         this.setState({password: event.target.value});
     }
 
-    onSubmitLog (event) {  
+    onSubmit(event) {  
         console.log(this.state);
         axios.post( '/auth/login/', {
             baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
@@ -38,15 +38,12 @@ class Login extends React.Component {
 
     render(){
         return (
-            <div className="Login">
-                <form onSubmit={this.onSubmitLog} id='logForm'>
-                    <label>Email:
-                        <input type="email" value={this.state.email} onChange={this.onChangedEmail}/>
-                    </label>
-                    <label>Password:
-                        <input type="password" value={this.state.password} onChange={this.onChangedPassword}/>
-                    </label>
-                    <input id='logs' type="submit" value="LOGIN"/>
+            <div className="fieldList">
+                <form onSubmit={this.onSubmit}>
+                        <input type="email" placeholder="Email" name={"login"} value={this.state.email} onChange={this.onChangedEmail}/>
+                        <input type="password" placeholder="Password" value={this.state.password} onChange={this.onChangedPassword}/>
+
+                    <input type="submit" value="LOGIN"/>
                 </form> 
             </div>
         );
