@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { NavBar, Footer, Loading } from "./components";
+import { NavBar, Footer } from "./components";
 import { Home, Profile, ExternalApi } from "./views";
 import ProtectedRoute from "./auth/protected-route";  
 
@@ -9,12 +9,6 @@ import ProtectedRoute from "./auth/protected-route";
 import "./app.css";
 
 const App = () => {
-  const token = localStorage.getItem("token"); 
-  const isAuth = token != null;
-
-  const [modalLoginActive, setModalLoginActive] = useState(!isAuth);
-  const [modalRegistrationActive, setModalRegistrationActive] = useState(false);
-  
 
   return (
     <div id="app" className="d-flex flex-column h-100">
