@@ -2,8 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { NavBar, Footer } from "./components";
-import { Home, Profile, ExternalApi } from "./views";
-import VacancyList from "./components/vacancy_list";
+import { Home, Profile, Vacancies, Candidates } from "./views";
 
 
 import "./app.css";
@@ -15,12 +14,12 @@ const App = () => {
       <NavBar />
       <div className="container flex-grow-1">
         <Switch>
-          <fragment><Route path="/" exact component={Home} /></fragment>
-          <fragment><Route path="/profile" component={Profile} /></fragment>
-          <fragment><Route path="/external-api" component={ExternalApi} /></fragment>
+          <Route path="/" exact component={Home} />
+          <Route path="/candidates" component={Candidates} />
+          <Route path="/vacancies" component={Vacancies} /> 
+          <Route path="/profile" component={Profile} />
         </Switch>
       </div>  
-        <VacancyList/>
       <Footer />
     </div>
   );

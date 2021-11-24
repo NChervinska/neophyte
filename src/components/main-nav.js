@@ -12,20 +12,20 @@ const MainNav = () => (
       Home
     </NavLink>
     <NavLink
-      to="/profile"
+      to="/candidates"
       exact
       className="nav-link"
       activeClassName="router-link-exact-active"
     >
-      Profile
+      Candidates
     </NavLink>
     <NavLink
-      to="/external-api"
+      to="/vacancies"
       exact
       className="nav-link"
       activeClassName="router-link-exact-active"
     >
-      External API
+      Vacancies
     </NavLink>
   </div>
 );

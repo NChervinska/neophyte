@@ -10,20 +10,21 @@ function VacancyAdd () {
         axios.post('https://pacific-spire-69544.herokuapp.com/auth/login/refresh/', {
             refresh: localStorage.getItem("token"), 
             headers: { "Content-Type": "multipart/form-data",},
-        }).then((response) => {
-        axios.post( '/vacancy/', {
-            baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
+        }).then((response) => { 
+            console.log(response.data);
+        axios.post( 'https://pacific-spire-69544.herokuapp.com/vacancies/', {
+            headers: { "Content-Type": "multipart/form-data", 
+                    Authorization: "Bearer " + response.data.access,
+                },
             name: data.name,
             description: data.description,
             key_words: data.keywords,
-            headers: { "Content-Type": "multipart/form-data", 
-            Authorization: "Bearer " + response.data.access, 
-            },
             mode: 'no-cors',
             })
             .then(res => {
                 console.log(res); 
                 console.log(res.data);
+                window.location.reload(); 
             })
         }).catch(err => {
                 console.log(err.message);
@@ -37,7 +38,7 @@ function VacancyAdd () {
                 <input type="name" placeholder="Name" {...register2("name")} />
                 <input type="name" placeholder="Description" {...register2("description")} />
                 <input type="name" placeholder="Description" {...register2("keywords")} />
-                <input type="submit" value="LOGIN"/>
+                <input type="submit" value="ADD"/>
             </form> 
         </div>
     );

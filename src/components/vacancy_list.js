@@ -46,9 +46,8 @@ function VacancyForech(props) {
     const content = props.vacancies.map((vacancy) =>
         <div key={vacancy.id}>
             <h3>{vacancy.name}</h3>
-            <p>{vacancy.description}</p> 
-            <button onClick={this.onSubmitDel}>Delete</button>
-            <button onClick={this.onSubmitEdit}>Edit</button>
+            <p>{vacancy.description}</p>  
+            <p>{vacancy.keywords}</p>
         </div>
     );
     return (
