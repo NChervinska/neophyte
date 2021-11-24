@@ -24,7 +24,10 @@ const AuthNav = () => {
         ); 
     }
     else{
-        return (<button onClick={() => localStorage.removeItem("token")}>Logout</button> );
+        return (<button onClick={() => {
+            localStorage.removeItem("token");
+            window.location.reload(); }
+        }>Logout</button> );
     }
 };
 

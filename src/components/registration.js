@@ -17,12 +17,12 @@ function Registration () {
             password2: data.password2,
             first_name: data.first_name,
             last_name: data.last_name,  
+            mode: 'no-cors',
             headers: { "Content-Type": "multipart/form-data" },})
             .then(res => {
                 console.log(res); 
                 console.log(res.data);
-                //Todo
-                localStorage.setItem("token", res.data.access);
+                window.location.reload(); 
             }).catch(err => {
                 console.log(err.message);
                 alert("Incorrect data");

@@ -3,23 +3,24 @@ import { Route, Switch } from "react-router-dom";
 
 import { NavBar, Footer } from "./components";
 import { Home, Profile, ExternalApi } from "./views";
-import ProtectedRoute from "./auth/protected-route";  
+import VacancyList from "./components/vacancy_list";
 
 
 import "./app.css";
 
-const App = () => {
-
+    
+const App = () => { 
   return (
     <div id="app" className="d-flex flex-column h-100">
       <NavBar />
       <div className="container flex-grow-1">
         <Switch>
-          <Route path="/" exact component={Home} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} />
+          <fragment><Route path="/" exact component={Home} /></fragment>
+          <fragment><Route path="/profile" component={Profile} /></fragment>
+          <fragment><Route path="/external-api" component={ExternalApi} /></fragment>
         </Switch>
-      </div> 
+      </div>  
+        <VacancyList/>
       <Footer />
     </div>
   );
