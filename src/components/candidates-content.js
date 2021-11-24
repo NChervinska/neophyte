@@ -1,7 +1,13 @@
 import React from "react";
+import CandidateList from "./candidate_list";
 
-const CandidatesContent = () => (
-    <p>Awaiting candidates</p>
-);
+const CandidatesContent = () => {
+    return (
+        <div>
+            <p>Candidates</p>
+            <CandidateList></CandidateList>
+        </div>
+    );
+}
 
 export default CandidatesContent;

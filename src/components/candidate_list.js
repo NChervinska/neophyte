@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-export default class VacancyList extends React.Component {
+export default class CandidateList extends React.Component {
     state = {
-        vacancies: []
+        candidates: []
     };
 
     componentDidMount(){ 
@@ -11,38 +11,38 @@ export default class VacancyList extends React.Component {
             refresh: localStorage.getItem("token"), 
             headers: { "Content-Type": "multipart/form-data",},
         }).then((response) => {
-            axios.get( 'https://pacific-spire-69544.herokuapp.com/vacancies/', {
+            axios.get( 'https://pacific-spire-69544.herokuapp.com/candidates/', {
                 headers: { 
                     Authorization: 'Bearer ' + response.data.access,
                     "Content-Type": "multipart/form-data", 
                 },
             })
             .then(res => {
-                this.setState({vacancies: res.data})
-                console.log(res); 
+                this.setState({candidates: res.data})
                 console.log(res.data);
-            })
+            }); 
         }).catch(err => {
                 console.log(err.message);
-        
         }); 
     }
     
     render(){
         return(
             <div>
-                <VacancyForech vacancies={this.state.vacancies} />
+                <CandidateForech candidates={this.state.candidates} />
             </div>
         );
     }
 }
 
-function VacancyForech(props) {
-    const content = props.vacancies.map((vacancy) =>
-        <div key={vacancy.id}>
-            <h3>{vacancy.name}</h3>
-            <p>{vacancy.description}</p>  
-            <p>{vacancy.keywords}</p>
+function CandidateForech(props) { 
+    const content = props.candidates.map((candidate) =>
+        <div key={candidate.id}>
+            <h3>{candidate.first_name}</h3>
+            <p>{candidate.last_name}</p>  
+            <p>{candidate.email}</p>
+            <p>{candidate.sv_file}</p>
+            <p>{candidate.vacancy}</p>
         </div>
     );
     return (

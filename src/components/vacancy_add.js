@@ -13,13 +13,12 @@ function VacancyAdd () {
         }).then((response) => { 
             console.log(response.data);
         axios.post( 'https://pacific-spire-69544.herokuapp.com/vacancies/', {
-            headers: { "Content-Type": "multipart/form-data", 
-                    Authorization: "Bearer " + response.data.access,
+            headers: {  Authorization: "Bearer " + response.data.access,
+                    "Content-Type": "multipart/form-data", 
                 },
             name: data.name,
             description: data.description,
             key_words: data.keywords,
-            mode: 'no-cors',
             })
             .then(res => {
                 console.log(res); 
@@ -37,7 +36,7 @@ function VacancyAdd () {
             <form onSubmit={handleSubmit2(onSubmitVac)}>
                 <input type="name" placeholder="Name" {...register2("name")} />
                 <input type="name" placeholder="Description" {...register2("description")} />
-                <input type="name" placeholder="Description" {...register2("keywords")} />
+                <input type="name" placeholder="Key words" {...register2("keywords")} />
                 <input type="submit" value="ADD"/>
             </form> 
         </div>

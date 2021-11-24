@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Fragment } from "react";
-import { Hero, CandidatesContent } from "../components";
+import { CandidatesContent } from "../components";
 const Candidates = () => (
     <Fragment>
         <CandidatesContent />
