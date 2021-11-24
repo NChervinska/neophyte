@@ -1,5 +1,5 @@
-import ExternalApi from "./external-api";
+import Vacancies from "./vacancies";
 import Home from "./home";
-import Profile from "./profile";
+import Candidates from "./candidates";
 
-export { ExternalApi, Home, Profile };
+export { Vacancies, Home, Candidates };

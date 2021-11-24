@@ -3,8 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { NavBar, Footer, Loading } from "./components";
-import { Home, Profile, ExternalApi } from "./views";
-import ProtectedRoute from "./auth/protected-route"; 
+import { Home, Profile, Vacancies, Candidates } from "./views";
 
 
 import "./app.css";
@@ -22,8 +21,8 @@ const App = () => {
       <div className="container flex-grow-1">
         <Switch>
           <Route path="/" exact component={Home} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} />
+          <Route path="/candidates" component={Candidates} />
+          <Route path="/vacancies" component={Vacancies} />
         </Switch>
       </div>
       <Footer />

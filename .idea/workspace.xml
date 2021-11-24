@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e87e6e7-6231-47e9-8f59-a68924597ecd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/candidates-content.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vacancies-content.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/candidates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/vacancies.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modal_dialog/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/modal_dialog/modal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/hero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main-nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main-nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/external-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/profile.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
