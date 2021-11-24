@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e87e6e7-6231-47e9-8f59-a68924597ecd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/candidates-content.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vacancies-content.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/candidates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/vacancies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vacancy_list.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/hero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main-nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main-nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/external-api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/profile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/candidates-content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/candidates-content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vacancies-content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vacancies-content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vacancy_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vacancy_add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vacancy_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vacancy_list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -78,6 +72,7 @@
       <workItem from="1637515917773" duration="522000" />
       <workItem from="1637520419457" duration="1033000" />
       <workItem from="1637521468638" duration="6684000" />
+      <workItem from="1637779192544" duration="3829000" />
     </task>
     <servers />
   </component>

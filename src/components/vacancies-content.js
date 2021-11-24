@@ -12,7 +12,7 @@ const VacanciesContent = () => {
                 <Modal active={modalVacancyAddActive} setActive={setModalVacancyAddActive}>
                     <VacancyAdd></VacancyAdd>
                 </Modal> 
-        <p>Vacancies</p>
+        <h1>Vacancies</h1>
         <VacancyList/>
     </div>   
 );

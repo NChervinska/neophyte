@@ -35,8 +35,11 @@ function VacancyAdd () {
         <div className="fieldList" key={3}>
             <form onSubmit={handleSubmit2(onSubmitVac)}>
                 <input type="name" placeholder="Name" {...register2("name")} />
+                <p></p>
                 <input type="name" placeholder="Description" {...register2("description")} />
+                <p></p>
                 <input type="name" placeholder="Key words" {...register2("keywords")} />
+                <p></p>
                 <input type="submit" value="ADD"/>
             </form> 
         </div>

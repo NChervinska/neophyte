@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import "./vacancy_list.css"
 export default class VacancyList extends React.Component {
     state = {
         vacancies: []
@@ -40,9 +40,15 @@ export default class VacancyList extends React.Component {
 function VacancyForech(props) {
     const content = props.vacancies.map((vacancy) =>
         <div key={vacancy.id}>
-            <h3>{vacancy.name}</h3>
-            <p>{vacancy.description}</p>  
-            <p>{vacancy.keywords}</p>
+            <table className="styled-table">
+                <tbody>
+                <tr>
+                    <td>{vacancy.name}</td>
+                    <td>{vacancy.description}</td>
+                   <td>{vacancy.key_words}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     );
     return (
