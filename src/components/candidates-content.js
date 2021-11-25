@@ -8,11 +8,11 @@ const CandidatesContent = () => {
     const [modalCandidateAddActive, setModalCandidateAddActive] = useState(false);
     return (
         <div>
-            <button className='open-can' onClick={() => setModalCandidateAddActive(true)}>Add Candidate</button>
+            <button class="gradient-button" onClick={() => setModalCandidateAddActive(true)}>Add Candidate</button>
             <Modal active={modalCandidateAddActive} setActive={setModalCandidateAddActive}>
                 <CandidateAdd></CandidateAdd>
             </Modal> 
-            <p>Candidates</p>
+            <h1>Candidates</h1>
             <CandidateList></CandidateList>
         </div>
     );
