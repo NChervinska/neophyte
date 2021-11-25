@@ -32,9 +32,9 @@ function Login () {
 
     return (
         <div className={"fieldList"}>
-                <form key={1} onSubmit={handleSubmit1(onSubmitLog)}>
-                    <input type="email" placeholder="Email" {...register1("email1")}/>
-                    <input type="password" placeholder="Password" {...register1("password3")}/>
+                <form key={6} onSubmit={handleSubmit1(onSubmitLog)}>
+                    <input type="email" placeholder="Email" {...register1("email1", {required: true})}/>
+                    <input type="password" placeholder="Password" {...register1("password3", {required: true})}/>
                     <p></p>
                     <input type="submit" value="LOGIN"/>
                 </form> 

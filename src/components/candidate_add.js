@@ -35,15 +35,15 @@ function CandidateAdd () {
     return (
         <div className="fieldList">
             <form key={4} onSubmit={handleSubmit4(onSubmitCan)}>
-                <input type="email" placeholder="Email" {...register4("email")} />
+                <input type="email" placeholder="Email" {...register4("email", {required: true})} />
                 <p></p>
-                <input type="text" placeholder="First Name" {...register4("first_name")} />
+                <input type="text" placeholder="First Name" {...register4("first_name", {required: true})} />
                 <p></p>
-                <input type="text" placeholder="Last Name" {...register4("last_name")} />
+                <input type="text" placeholder="Last Name" {...register4("last_name", {required: true})} />
                 <p></p>
-                <input type="file" placeholder="CV" accept=".docx, .doc"{...register4("sv_file")} />
+                <input type="file" placeholder="CV" accept=".docx, .doc"{...register4("sv_file", {required: true})} />
                 <p></p>
-                <input type="text" placeholder="Vacancy" {...register4("vacancy")} />
+                <input type="text" placeholder="Vacancy" {...register4("vacancy", {required: true})} />
                 <p></p>
                 <input type="submit" value="ADD"/>
             </form> 

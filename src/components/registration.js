@@ -32,11 +32,11 @@ function Registration () {
         return (
             <div className={"fieldList"}>
                 <form key={2} onSubmit={handleSubmit2(onSubmitReg)}>
-                    <input type="email" placeholder="Email" {...register2("email")}/>
-                    <input type="password" placeholder="Password" {...register2("password")}/>
-                    <input type="password" placeholder="Repeat password" {...register2("password2")}/>
-                    <input type="text" placeholder="First name" {...register2("first_name")}/>
-                    <input type="text" placeholder="Last name" {...register2("last_name")}/>
+                    <input type="email" placeholder="Email" {...register2("email", {required: true})}/>
+                    <input type="password" placeholder="Password" {...register2("password", {required: true})}/>
+                    <input type="password" placeholder="Repeat password" {...register2("password2", {required: true})}/>
+                    <input type="text" placeholder="First name" {...register2("first_name", {required: true})}/>
+                    <input type="text" placeholder="Last name" {...register2("last_name", {required: true})}/>
                     <p></p>
                     <input type="submit" value="REGISTER"/>
                 </form> 
