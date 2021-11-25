@@ -3,14 +3,16 @@ import CandidateList from "./candidate_list";
 import Modal from '../modal_dialog/modal';
 import CandidateAdd from './candidate_add';
 import {useState} from 'react';
-
+import "./candidates-content.css"
 const CandidatesContent = () => {
     const token = localStorage.getItem("token"); 
     const isAuth = token != null; 
     const [modalCandidateAddActive, setModalCandidateAddActive] = useState(false);
     return (
         (isAuth &&<div>
+            <div className={"addButton"}>
             <button class="gradient-button" onClick={() => setModalCandidateAddActive(true)}>Add Candidate</button>
+        </div>
             <Modal active={modalCandidateAddActive} setActive={setModalCandidateAddActive}>
                 <CandidateAdd></CandidateAdd>
             </Modal> 
