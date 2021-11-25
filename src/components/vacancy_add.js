@@ -4,22 +4,27 @@ import {useForm} from "react-hook-form";
 import "./login.css"
 
 function VacancyAdd () {
-    const { register: register2, handleSubmit: handleSubmit2,} = useForm();
+    const { register: register3, handleSubmit: handleSubmit3} = useForm();
     const onSubmitVac = data => {
         console.log(data); 
         axios.post('https://pacific-spire-69544.herokuapp.com/auth/login/refresh/', {
             refresh: localStorage.getItem("token"), 
             headers: { "Content-Type": "multipart/form-data",},
-        }).then((response) => { 
+        }).then((response) => {  
+            const config = {
+                headers: {  
+                    Authorization: "Bearer " + response.data.access,
+                }
+            };
             console.log(response.data);
-        axios.post( 'https://pacific-spire-69544.herokuapp.com/vacancies/', {
-            headers: {  Authorization: "Bearer " + response.data.access,
-                    "Content-Type": "multipart/form-data", 
-                },
+        axios.post( 'https://pacific-spire-69544.herokuapp.com/vacancies/', 
+            {
             name: data.name,
             description: data.description,
             key_words: data.keywords,
-            })
+            },
+            config,
+            )
             .then(res => {
                 console.log(res); 
                 console.log(res.data);
@@ -32,13 +37,13 @@ function VacancyAdd () {
     };
 
     return (
-        <div className="fieldList" key={3}>
-            <form onSubmit={handleSubmit2(onSubmitVac)}>
-                <input type="name" placeholder="Name" {...register2("name")} />
+        <div className="fieldList">
+            <form key={3} onSubmit={handleSubmit3(onSubmitVac)}>
+                <input type="text" placeholder="Name" {...register3("name")} />
                 <p></p>
-                <input type="name" placeholder="Description" {...register2("description")} />
+                <input type="text" placeholder="Description" {...register3("description")} />
                 <p></p>
-                <input type="name" placeholder="Key words" {...register2("keywords")} />
+                <input type="text" placeholder="Key words" {...register3("keywords")} />
                 <p></p>
                 <input type="submit" value="ADD"/>
             </form> 

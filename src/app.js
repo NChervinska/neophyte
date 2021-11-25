@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import { NavBar, Footer } from "./components";
 import { Home, Profile, Vacancies, Candidates } from "./views";
+import axios from 'axios';
 
 
 import "./app.css";

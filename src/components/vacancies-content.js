@@ -8,10 +8,10 @@ const VacanciesContent = () => {
     const [modalVacancyAddActive, setModalVacancyAddActive] = useState(false);
     return (
     <div>
-        <button className='open' onClick={() => setModalVacancyAddActive(true)}>Add Vacancy</button>
-                <Modal active={modalVacancyAddActive} setActive={setModalVacancyAddActive}>
-                    <VacancyAdd></VacancyAdd>
-                </Modal> 
+        <button className='open-vac' onClick={() => setModalVacancyAddActive(true)}>Add Vacancy</button>
+            <Modal active={modalVacancyAddActive} setActive={setModalVacancyAddActive}>
+                <VacancyAdd></VacancyAdd>
+            </Modal> 
         <h1>Vacancies</h1>
         <VacancyList/>
     </div>   

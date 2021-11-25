@@ -41,7 +41,7 @@ function CandidateForech(props) {
             <h3>{candidate.first_name}</h3>
             <p>{candidate.last_name}</p>  
             <p>{candidate.email}</p>
-            <p>{candidate.sv_file}</p>
+            <output type="file">{candidate.sv_file}</output>
             <p>{candidate.vacancy}</p>
         </div>
     );

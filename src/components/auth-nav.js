@@ -12,7 +12,7 @@ const AuthNav = () => {
     if(!isAuth) {
         return (
             <div>
-                <button className='open' onClick={() => setModalRegistrationActive(true)}>Registration</button>
+                <button className='open-log' onClick={() => setModalRegistrationActive(true)}>Registration</button>
                 <Modal active={modalRegistrationActive} setActive={setModalRegistrationActive}>
                     <Registration></Registration>
                 </Modal> 

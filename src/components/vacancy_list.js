@@ -45,7 +45,7 @@ function VacancyForech(props) {
                 <tr>
                     <td>{vacancy.name}</td>
                     <td>{vacancy.description}</td>
-                   <td>{vacancy.key_words}</td>
+                    <td>{vacancy.key_words}</td>
                 </tr>
                 </tbody>
             </table>

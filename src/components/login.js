@@ -1,17 +1,20 @@
 import React from "react";
 import axios from "axios"; 
 import {useForm} from "react-hook-form";
-import "./login.css"
 
 const URL = 'https://pacific-spire-69544.herokuapp.com/auth/login/';
 function Login () {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const {
+        register: register1,
+        handleSubmit: handleSubmit1
+    } = useForm();
+
+    const onSubmitLog = (data) => {
         axios.post( URL, { 
             withCredentials: false,
             mode: 'no-cors',
-            email: data.email,
-            password: data.password,
+            email: data.email1,
+            password: data.password3,
             headers: { 
                 "Access-Control-Allow-Origin": "*",
                 "Content-Type": "multipart/form-data" },
@@ -28,13 +31,14 @@ function Login () {
     };
 
     return (
-        <div className="fieldList" key={1}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="email" placeholder="Email" {...register("email")} />
-                <input type="password" placeholder="Password" {...register("password")} />
-                <input type="submit" value="LOGIN"/>
-            </form> 
-        </div>
+        <div className={"fieldList"}>
+                <form key={1} onSubmit={handleSubmit1(onSubmitLog)}>
+                    <input type="email" placeholder="Email" {...register1("email1")}/>
+                    <input type="password" placeholder="Password" {...register1("password3")}/>
+                    <p></p>
+                    <input type="submit" value="LOGIN"/>
+                </form> 
+            </div>
     );
 } 
 
