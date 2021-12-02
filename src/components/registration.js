@@ -1,33 +1,26 @@
 import React from "react";
-import axios from "axios"; 
 import {useForm} from "react-hook-form";
+import {register} from "../client/auth_api";
 
 function Registration () {
     const {
         register: register2,
         handleSubmit: handleSubmit2,
-      } = useForm();
+    } = useForm();
 
-      const onSubmitReg = (data) => {
-        console.log(data);
-        axios.post( '/auth/register/', {
-            baseurl: 'https://pacific-spire-69544.herokuapp.com/', 
-            email: data.email,
-            password: data.password,
-            password2: data.password2,
-            first_name: data.first_name,
-            last_name: data.last_name,  
-            mode: 'no-cors',
-            headers: { "Content-Type": "multipart/form-data" },})
-            .then(res => {
-                console.log(res); 
-                console.log(res.data);
-                window.location.reload(); 
-            }).catch(err => {
-                console.log(err.message);
-                alert("Incorrect data");
-        });
-      };
+    const onSubmitReg = (data) => {
+        async function getRegistration() {
+            const res = await register(data.email, 
+                data.password, 
+                data.password2,
+                data.first_name,
+                data.last_name,
+            );
+            console.log(res.data);
+            window.location.reload(); 
+        } 
+        getRegistration();
+    };
 
         return (
             <div className={"fieldList"}>

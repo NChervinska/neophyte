@@ -1,33 +1,21 @@
 import React from "react";
-import axios from "axios"; 
 import {useForm} from "react-hook-form";
+import {login} from "../client/auth_api"
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/auth/login/';
 function Login () {
     const {
         register: register1,
         handleSubmit: handleSubmit1
     } = useForm();
 
-    const onSubmitLog = (data) => {
-        axios.post( URL, { 
-            withCredentials: false,
-            mode: 'no-cors',
-            email: data.email1,
-            password: data.password3,
-            headers: { 
-                "Access-Control-Allow-Origin": "*",
-                "Content-Type": "multipart/form-data" },
-            })
-            .then(res => {
-                console.log(res); 
-                console.log(res.data);
-                localStorage.setItem("token", res.data.refresh);
-                window.location.reload(); 
-            }).catch(err => {
-                console.log(err.message);
-                alert("Incorrect data");
-        });
+    const onSubmitLog = (data) => { 
+        async function getLogin() {
+            const res = await login(data.email1, data.password3);
+            console.log(res.data);
+            localStorage.setItem("token", res.data.refresh);
+            window.location.reload();  
+        } 
+        getLogin();
     };
 
     return (
