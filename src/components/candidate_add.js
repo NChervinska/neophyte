@@ -1,35 +1,25 @@
 import React from "react";
-import axios from "axios"; 
 import {useForm} from "react-hook-form";
+import {refresh} from '../client/auth_api';
+import { createCandidats } from "../client/candidat_api";
 import "./login.css"
 
 function CandidateAdd () {
     const { register: register4, handleSubmit: handleSubmit4} = useForm();
+
     const onSubmitCan = data => {
-        console.log(data); 
-        axios.post('https://pacific-spire-69544.herokuapp.com/auth/login/refresh/', {
-            refresh: localStorage.getItem("token"), 
-            headers: { "Content-Type": "multipart/form-data",},
-        }).then((response) => { 
-            const config = {headers: {  
-                    Authorization: "Bearer " + response.data.access,
-                }}; 
-                console.log(data.sv_file[0]);
-        axios.post( 'https://pacific-spire-69544.herokuapp.com/candidates/', {
-            email: data.email, 
-            first_name: data.first_name, 
-            last_name: data.last_name, 
-            sv_file: data.sv_file[0],
-            vacancy: data.vacancy,
-            }, 
-            config, 
-            )
-            .then(res => {
-                console.log(res); 
-                console.log(res.data);
-                window.location.reload(); 
-            })
-        }); 
+        async function getData() {
+            const response = await refresh();
+            await createCandidats(data.email, 
+                data.first_name, 
+                data.last_name, 
+                data.sv_file[0],
+                data.vacancy,data, 
+                response.data.access,
+            );
+            window.location.reload(); 
+        } 
+        getData();
     };
 
     return (

@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+import {refresh} from '../client/auth_api';
+import { getCandidats } from "../client/candidat_api";
 
 export default class CandidateList extends React.Component {
     state = {
@@ -7,23 +8,13 @@ export default class CandidateList extends React.Component {
     };
 
     componentDidMount(){ 
-        axios.post('https://pacific-spire-69544.herokuapp.com/auth/login/refresh/', {
-            refresh: localStorage.getItem("token"), 
-            headers: { "Content-Type": "multipart/form-data",},
-        }).then((response) => {
-            axios.get( 'https://pacific-spire-69544.herokuapp.com/candidates/', {
-                headers: { 
-                    Authorization: 'Bearer ' + response.data.access,
-                    "Content-Type": "multipart/form-data", 
-                },
-            })
-            .then(res => {
-                this.setState({candidates: res.data})
-                console.log(res.data);
-            }); 
-        }).catch(err => {
-                console.log(err.message);
-        }); 
+        async function getData() {
+            const response = await refresh();
+            return getCandidats(response.data.access);
+        }
+        getData().then(res => {
+            this.setState({candidates: res.data})
+        });
     }
     
     render(){
