@@ -1,6 +1,11 @@
 import React from "react";
 import axios from "axios";
-
+import "./vacancy_list.css"
+import CandidateUpdate from "./candidate_update";
+import CandidateDelete from "./candidate_delete";
+import Modal from '../modal_dialog/modal';
+import {useState} from 'react';
+import "./vacancies-content.css"
 export default class CandidateList extends React.Component {
     state = {
         candidates: []
@@ -35,7 +40,9 @@ export default class CandidateList extends React.Component {
     }
 }
 
-function CandidateForech(props) { 
+function CandidateForech(props) {
+    const [modalCandidateUpdateActive, setModalCandidateUpdateActive] = useState(false);
+    const [modalCandidateDeleteActive, setModalCandidateDeleteActive] = useState(false);
     const content = props.candidates.map((candidate) =>
         <div key={candidate.id}>
             <table className="styled-table">
@@ -49,6 +56,18 @@ function CandidateForech(props) {
                     </tr>
                 </tbody>
             </table>
+            <div className={"updateButton"}>
+                <button className="gradient-button" onClick={() => setModalCandidateUpdateActive(true)}>Update</button>
+                <Modal active={modalCandidateUpdateActive} setActive={setModalCandidateUpdateActive}>
+                    <CandidateUpdate></CandidateUpdate>
+                </Modal>
+            </div>
+            <div className={"deleteButton"}>
+                <button className="gradient-button-delete" onClick={() => setModalCandidateDeleteActive(true)}>Delete</button>
+                <Modal active={modalCandidateDeleteActive} setActive={setModalCandidateDeleteActive}>
+                    <CandidateDelete></CandidateDelete>
+                </Modal>
+            </div>
         </div>
     );
     return (

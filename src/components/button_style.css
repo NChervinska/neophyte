@@ -17,3 +17,23 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
     transition: .3s;
 }
+.gradient-button-delete {
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    border-color:black;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: black;
+    background: pink;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+}

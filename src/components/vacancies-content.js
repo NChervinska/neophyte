@@ -2,7 +2,7 @@ import React from "react";
 import VacancyList from './vacancy_list';
 import Modal from '../modal_dialog/modal';
 import {useState} from 'react';
-import VacancyAdd from "./vacancy_add"; 
+import VacancyAdd from "./vacancy_add";
 import "./button_style.css"
 import "./vacancies-content.css"
 const VacanciesContent = () => {
