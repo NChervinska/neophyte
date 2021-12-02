@@ -3,7 +3,7 @@ import CandidateList from "./candidate_list";
 import Modal from '../modal_dialog/modal';
 import CandidateAdd from './candidate_add';
 import {useState} from 'react';
-import "./candidates-content.css"
+
 const CandidatesContent = () => {
     const token = localStorage.getItem("token"); 
     const isAuth = token != null; 

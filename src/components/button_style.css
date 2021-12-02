@@ -24,7 +24,7 @@
     height: 45px;
     line-height: 45px;
     border-radius: 45px;
-    border-color:black;
+    border-color:red;
     margin: 10px 20px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
@@ -32,8 +32,8 @@
     text-align: center;
     letter-spacing: 3px;
     font-weight: 600;
-    color: black;
-    background: pink;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    color: red;
+    background: white;
+    box-shadow: 0 8px 15px rgba(255, 0, 0, .1);
     transition: .3s;
 }
