@@ -11,6 +11,7 @@ const VacanciesContent = () => {
     const isAuth = token != null; 
     const [modalVacancyAddActive, setModalVacancyAddActive] = useState(false);
     
+    
     return (
     (isAuth && <div>
         <div className={"addButton"}>

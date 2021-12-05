@@ -5,4 +5,5 @@ import Loading from "./loading";
 import NavBar from "./nav-bar";
 import VacanciesContent from "./vacancies-content";
 import CandidatesContent from "./candidates-content";
-export { HomeContent, VacanciesContent, CandidatesContent, Footer, Hero, Loading, NavBar };
+import InterviewsContent from "./interviews-content";
+export { HomeContent, VacanciesContent, CandidatesContent, InterviewsContent, Footer, Hero, Loading, NavBar };

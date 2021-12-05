@@ -27,6 +27,14 @@ const MainNav = () => (
     >
       Vacancies
     </NavLink>
+      <NavLink
+          to="/interviews"
+          exact
+          className="nav-link"
+          activeClassName="router-link-exact-active"
+      >
+          Interviews
+      </NavLink>
   </div>
 );
 
