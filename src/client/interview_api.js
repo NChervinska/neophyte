@@ -1,14 +1,12 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/candidates/';
+const URL = 'https://pacific-spire-69544.herokuapp.com/interviews/';
 
-export async function createCandidats(email, first_name, last_name, sv_file, vacancy, access) {
+export async function createInterview(candidate, datetime, link, access) {
     return await axios.post( URL, {
-        email: email, 
-        first_name: first_name, 
-        last_name: last_name, 
-        sv_file: sv_file,
-        vacancy: vacancy,
+        candidate: candidate,
+        datetime: datetime,
+        link: link,
         }, {headers: {  
             Authorization: "Bearer " + access,
             "Content-Type": "multipart/form-data",
@@ -16,7 +14,7 @@ export async function createCandidats(email, first_name, last_name, sv_file, vac
     );
 }
 
-export async function getCandidats(access){
+export async function getInterviews(access){
     return await  axios.get( URL, {
         headers: { 
             Authorization: 'Bearer ' + access,
@@ -43,13 +41,11 @@ export async function deleteCandidate(access, id){
     });
 }
 
-export async function updateCandidate(id, email, first_name, last_name, sv_file, vacancy, access){
+export async function updateCandidate(id, candidate, datetime, link, access){
     return await axios.put(URL + id, {
-        email: email, 
-        first_name: first_name, 
-        last_name: last_name, 
-        sv_file: sv_file,
-        vacancy: vacancy,
+        candidate: candidate,
+        datetime: datetime,
+        link: link,
         }, {headers: {  
             Authorization: "Bearer " + access,
             "Content-Type": "multipart/form-data",

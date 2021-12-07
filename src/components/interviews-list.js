@@ -1,7 +1,6 @@
 import React from "react";
 import "./vacancy_list.css"
 import InterviewUpdate from "./interview_update";
-import InterviewDelete from "./interview_delete";
 import Modal from '../modal_dialog/modal';
 import {useState} from 'react';
 import "./vacancies-content.css"
@@ -57,7 +56,6 @@ function CandidateForech(props) {
             <div className={"deleteButton"}>
                 <button className="gradient-button-delete" onClick={() => setModalInterviewDeleteActive(true)}>Delete</button>
                 <Modal active={modalInterviewDeleteActive} setActive={setModalInterviewDeleteActive}>
-                    <InterviewDelete></InterviewDelete>
                 </Modal>
             </div>
         </div>

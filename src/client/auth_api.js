@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/';
+const URL = 'https://pacific-spire-69544.herokuapp.com/auth/';
 
 export async function login(email, password) {
-    return await axios.post( URL + 'auth/login/', { 
+    return await axios.post( URL + 'login/', { 
     withCredentials: false,
     mode: 'no-cors',
     email: email,
@@ -15,14 +15,14 @@ export async function login(email, password) {
 }
 
 export async function refresh(){
-    return await axios.post( URL + 'auth/login/refresh/', {
+    return await axios.post( URL + 'login/refresh/', {
         refresh: localStorage.getItem("token"), 
         headers: { "Content-Type": "multipart/form-data",},
     });
 }
 
 export async function register(email, password, password2, first_name, last_name) {
-    return await axios.post( URL + '/auth/register/', {
+    return await axios.post( URL + 'register/', {
         email: email,
         password: password,
         password2: password2,

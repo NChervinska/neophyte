@@ -1,13 +1,16 @@
 import React from "react";
 import "./vacancy_list.css"
-import CandidateUpdate from "./candidate_update";
-import CandidateDelete from "./candidate_delete";
-import Modal from '../modal_dialog/modal';
-import {useState} from 'react';
 import "./vacancies-content.css"
 import {refresh} from '../client/auth_api';
-import { getCandidats } from "../client/candidat_api";
+import {getCandidats, deleteCandidate} from '../client/candidat_api';
 
+    async function getData(id) {
+        const response = await refresh(); 
+        console.log(id);
+        await deleteCandidate(response.data.access, id);
+        window.location.reload(); 
+    };
+    
 export default class CandidateList extends React.Component {
     state = {
         candidates: []
@@ -22,7 +25,7 @@ export default class CandidateList extends React.Component {
             this.setState({candidates: res.data})
         });
     }
-    
+
     render(){
         return(
             <div>
@@ -33,8 +36,6 @@ export default class CandidateList extends React.Component {
 }
 
 function CandidateForech(props) {
-    const [modalCandidateUpdateActive, setModalCandidateUpdateActive] = useState(false);
-    const [modalCandidateDeleteActive, setModalCandidateDeleteActive] = useState(false);
     const content = props.candidates.map((candidate) =>
         <div key={candidate.id}>
             <table className="styled-table">
@@ -49,16 +50,12 @@ function CandidateForech(props) {
                 </tbody>
             </table>
             <div className={"updateButton"}>
-                <button className="gradient-button" onClick={() => setModalCandidateUpdateActive(true)}>Update</button>
-                <Modal active={modalCandidateUpdateActive} setActive={setModalCandidateUpdateActive}>
-                    <CandidateUpdate></CandidateUpdate>
-                </Modal>
+                <button className="gradient-button" onClick={getData()}>Update</button>
             </div>
             <div className={"deleteButton"}>
-                <button className="gradient-button-delete" onClick={() => setModalCandidateDeleteActive(true)}>Delete</button>
-                <Modal active={modalCandidateDeleteActive} setActive={setModalCandidateDeleteActive}>
-                    <CandidateDelete></CandidateDelete>
-                </Modal>
+                <button className="gradient-button-delete" onClick={
+                getData(candidate.id)
+                } >Delete</button>
             </div>
         </div>
     );

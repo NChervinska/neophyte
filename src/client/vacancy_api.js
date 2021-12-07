@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/';
+const URL = 'https://pacific-spire-69544.herokuapp.com/vacancies/';
 
 export async function createVacancy(name, description, keywords, access) {
-    return await axios.post( URL + 'vacancies/', {
+    return await axios.post( URL, {
             name: name,
             description: description,
             key_words: keywords,
@@ -13,11 +13,42 @@ export async function createVacancy(name, description, keywords, access) {
 }
 
 export async function getVacancies(access){
-    return await axios.get( URL + 'vacancies/', {
+    return await axios.get( URL, {
         headers: { 
             Authorization: 'Bearer ' + access,
             "Content-Type": "multipart/form-data", 
         },
+    });
+}
+
+
+export async function getVacancy(access, id){
+    return await axios.get( URL + id, {
+        headers: {
+            Authorization: 'Bearer ' + access, 
+            "Content-Type": "multipart/form-data",
+        },
+    });
+}
+
+export async function deleteCandidate(access, id){
+    return await axios.delete( URL + id, {
+        headers: {
+            Authorization: 'Bearer ' + access,
+            "Content-Type": "multipart/form-data",
+        },
+    });
+}
+
+export async function updateCandidate(id, name, description, keywords, access){
+    return await axios.put(URL + id, {
+            name: name,
+            description: description,
+            key_words: keywords,
+        }, {headers: {  
+            Authorization: "Bearer " + access,
+            "Content-Type": "multipart/form-data",
+        }, 
     });
 }
 

@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/candidates/';
+const URL = 'https://pacific-spire-69544.herokuapp.com/users';
 
-export async function createCandidats(email, first_name, last_name, sv_file, vacancy, access) {
+export async function createUser(email, password, password2, first_name, last_name, access) {
     return await axios.post( URL, {
-        email: email, 
-        first_name: first_name, 
-        last_name: last_name, 
-        sv_file: sv_file,
-        vacancy: vacancy,
+        email: email,
+        password: password,
+        password2: password2,
+        first_name: first_name,
+        last_name: last_name,  
         }, {headers: {  
             Authorization: "Bearer " + access,
             "Content-Type": "multipart/form-data",
@@ -16,7 +16,7 @@ export async function createCandidats(email, first_name, last_name, sv_file, vac
     );
 }
 
-export async function getCandidats(access){
+export async function getUsers(access){
     return await  axios.get( URL, {
         headers: { 
             Authorization: 'Bearer ' + access,
@@ -25,7 +25,7 @@ export async function getCandidats(access){
     });
 }
 
-export async function getCandidat(access, id){
+export async function getUser(access, id){
     return await axios.get( URL + id, {
         headers: {
             Authorization: 'Bearer ' + access, 
@@ -34,7 +34,7 @@ export async function getCandidat(access, id){
     });
 }
 
-export async function deleteCandidate(access, id){
+export async function deleteUser(access, id){
     return await axios.delete( URL + id, {
         headers: {
             Authorization: 'Bearer ' + access,
@@ -43,13 +43,14 @@ export async function deleteCandidate(access, id){
     });
 }
 
-export async function updateCandidate(id, email, first_name, last_name, sv_file, vacancy, access){
+export async function updateUser(id, email, password, password2, first_name, last_name, access){
     return await axios.put(URL + id, {
-        email: email, 
-        first_name: first_name, 
-        last_name: last_name, 
-        sv_file: sv_file,
-        vacancy: vacancy,
+        email: email,
+        password: password,
+        password2: password2,
+        first_name: first_name,
+        last_name: last_name,
+        link: link,
         }, {headers: {  
             Authorization: "Bearer " + access,
             "Content-Type": "multipart/form-data",
