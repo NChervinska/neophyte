@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/vacancies/';
+const URL = 'https://pacific-spire-69544.herokuapp.com/api/vacancies/';
 
 export async function createVacancy(name, description, keywords, access) {
     return await axios.post( URL, {

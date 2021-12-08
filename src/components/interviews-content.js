@@ -4,6 +4,7 @@ import Modal from '../modal_dialog/modal';
 import InterviewAdd from './interview_add';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
+
 const InterviewsContent = () => {
     const token = localStorage.getItem("token");
     const isAuth = token != null;
