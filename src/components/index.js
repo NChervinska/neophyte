@@ -7,4 +7,5 @@ import VacanciesContent from "./vacancies-content";
 import CandidatesContent from "./candidates-content";
 import InterviewsContent from "./interviews-content";
 import ProfileContent from "./profile-content";
-export { HomeContent, VacanciesContent, CandidatesContent, InterviewsContent, ProfileContent, Footer, Hero, Loading, NavBar };
+import ScreenCaptureContent from "./screen-capture-content";
+export { HomeContent, VacanciesContent, CandidatesContent, InterviewsContent, ProfileContent,ScreenCaptureContent, Footer, Hero, Loading, NavBar };

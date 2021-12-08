@@ -37,3 +37,11 @@
     box-shadow: 0 8px 15px rgba(255, 0, 0, .1);
     transition: .3s;
 }
+.colored-button{
+    color: #524f4e;
+    font-weight: 600;
+    background: pink;
+    border-radius: 45px;
+    border-color: black;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+}
