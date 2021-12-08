@@ -3,4 +3,5 @@ import Home from "./home";
 import Candidates from "./candidates"; 
 import Profile from "./profile";
 import Interviews from "./interviews"
-export { Vacancies, Home, Candidates, Interviews, Profile };
+import ScreenCapture from "./screen-capture"
+export { Vacancies, Home, Candidates, Interviews, ScreenCapture,  Profile };

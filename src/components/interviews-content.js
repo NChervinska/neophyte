@@ -3,13 +3,14 @@ import InterviewsList from "./interviews-list";
 import Modal from '../modal_dialog/modal';
 import InterviewAdd from './interview_add';
 import {useState} from 'react';
-
+import {Link} from 'react-router-dom';
 const InterviewsContent = () => {
     const token = localStorage.getItem("token");
     const isAuth = token != null;
     const [modalInterviewAddActive, setModalInterviewAddActive] = useState(false);
     return (
         (isAuth &&<div>
+            <Link to="/screenCapture" className="btn btn-primary colored-button">To screen capturement</Link>
             <div className={"addButton"}>
                 <button class="gradient-button" onClick={() => setModalInterviewAddActive(true)}>Add Interview</button>
             </div>
