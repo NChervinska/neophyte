@@ -2,7 +2,8 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {refresh} from '../client/auth_api';
 import { createCandidats } from "../client/candidat_api";
-import "./login.css"
+import "./login.css";
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
 function CandidateAdd () {
     const { register: register4, handleSubmit: handleSubmit4} = useForm();
@@ -13,7 +14,7 @@ function CandidateAdd () {
             await createCandidats(data.email, 
                 data.first_name, 
                 data.last_name, 
-                data.sv_file[0],
+                base64_encode(data.sv_file[0]),
                 data.vacancy,data, 
                 response.data.access,
             );

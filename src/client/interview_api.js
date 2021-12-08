@@ -9,7 +9,7 @@ export async function createInterview(candidate, datetime, link, access) {
         link: link,
         }, {headers: {  
             Authorization: "Bearer " + access,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
         }}, 
     );
 }

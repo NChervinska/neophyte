@@ -31,8 +31,8 @@ export async function getVacancy(access, id){
     });
 }
 
-export async function deleteCandidate(access, id){
-    return await axios.delete( URL + id, {
+export async function deleteVacancy(access, id){
+    return await axios.delete( URL + ":" + id, {
         headers: {
             Authorization: 'Bearer ' + access,
             "Content-Type": "multipart/form-data",
@@ -40,7 +40,7 @@ export async function deleteCandidate(access, id){
     });
 }
 
-export async function updateCandidate(id, name, description, keywords, access){
+export async function updateVacancy(id, name, description, keywords, access){
     return await axios.put(URL + id, {
             name: name,
             description: description,

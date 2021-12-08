@@ -4,16 +4,14 @@ const URL = 'https://pacific-spire-69544.herokuapp.com/candidates/';
 
 export async function createCandidats(email, first_name, last_name, sv_file, vacancy, access) {
     return await axios.post( URL, {
-        email: email, 
-        first_name: first_name, 
-        last_name: last_name, 
+        email: email,
+        first_name: first_name,
+        last_name: last_name,
         sv_file: sv_file,
         vacancy: vacancy,
-        }, {headers: {  
-            Authorization: "Bearer " + access,
-            "Content-Type": "multipart/form-data",
-        }}, 
-    );
+    },{headers: { Authorization: "Bearer " + access}
+    }, 
+);
 }
 
 export async function getCandidats(access){

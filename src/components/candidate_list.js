@@ -3,6 +3,7 @@ import "./vacancy_list.css"
 import "./vacancies-content.css"
 import {refresh} from '../client/auth_api';
 import {getCandidats, deleteCandidate} from '../client/candidat_api';
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
     async function getData(id) {
         const response = await refresh(); 
@@ -44,7 +45,7 @@ function CandidateForech(props) {
                         <td>{candidate.first_name}</td>
                         <td>{candidate.last_name}</td>  
                         <td>{candidate.email}</td>
-                        <td><output type="file">{candidate.sv_file}</output></td>
+                        <a href='cv.doc' download={base64_decode(candidate.sv_file)} download>Download</a>
                         <td>{candidate.vacancy}</td>
                     </tr>
                 </tbody>
@@ -58,6 +59,7 @@ function CandidateForech(props) {
                 } >Delete</button>
             </div>
         </div>
+        
     );
     return (
         <div>

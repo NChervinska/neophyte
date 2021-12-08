@@ -32,6 +32,8 @@
     ]
   },
   "devDependencies": {
+    "@types/base-64": "^1.0.0",
+    "base-64": "^1.0.0",
     "cross-env": "^7.0.2"
   }
 }
