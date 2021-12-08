@@ -83,16 +83,16 @@ const ScreenCaptureContent = () => {
         (isAuth &&<div>
             <h1>Interview screen capturing</h1>
             <div>
-                <button id="startbutton" class="gradient-button" onClick={(ev) => {
+                <button id="startbutton" className="gradient-button" onClick={(ev) => {
                     timerId = setInterval(() => takepicture(), 1000);
                     ev.preventDefault();
                 }}>Start</button>
-                <button id="cancelbutton" class="gradient-button" onClick={(ev) => {
+                <button id="cancelbutton" className="gradient-button" onClick={(ev) => {
                     clearInterval(timerId);
                     window.removeEventListener('canplay', startup, false);
                     ev.preventDefault();
                 }}>Cancel</button>
-                <div class="camera">
+                <div className="camera">
                 <video id="video">Video stream not available.</video>
                 </div>
                 <canvas id="canvas"> 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/api/vacancies/';
+const URL = 'https://pacific-spire-69544.herokuapp.com/vacancies/';
 
 export async function createVacancy(name, description, keywords, access) {
     return await axios.post( URL, {
@@ -23,7 +23,7 @@ export async function getVacancies(access){
 
 
 export async function getVacancy(access, id){
-    return await axios.get( URL + id, {
+    return await axios.get( URL + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access, 
             "Content-Type": "multipart/form-data",
@@ -32,7 +32,7 @@ export async function getVacancy(access, id){
 }
 
 export async function deleteVacancy(access, id){
-    return await axios.delete( URL + ":" + id, {
+    return await axios.delete( URL + ":" + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access,
             "Content-Type": "multipart/form-data",
@@ -41,7 +41,7 @@ export async function deleteVacancy(access, id){
 }
 
 export async function updateVacancy(id, name, description, keywords, access){
-    return await axios.put(URL + id, {
+    return await axios.put(URL + id + '/', {
             name: name,
             description: description,
             key_words: keywords,

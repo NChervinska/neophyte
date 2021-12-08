@@ -24,7 +24,7 @@ export async function getInterviews(access){
 }
 
 export async function getCandidat(access, id){
-    return await axios.get( URL + id, {
+    return await axios.get( URL + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access, 
             "Content-Type": "multipart/form-data",
@@ -33,7 +33,7 @@ export async function getCandidat(access, id){
 }
 
 export async function deleteCandidate(access, id){
-    return await axios.delete( URL + id, {
+    return await axios.delete( URL + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access,
             "Content-Type": "multipart/form-data",
@@ -42,7 +42,7 @@ export async function deleteCandidate(access, id){
 }
 
 export async function updateCandidate(id, candidate, datetime, link, access){
-    return await axios.put(URL + id, {
+    return await axios.put(URL + id + '/', {
         candidate: candidate,
         datetime: datetime,
         link: link,

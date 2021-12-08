@@ -15,7 +15,7 @@ const VacanciesContent = () => {
     return (
     (isAuth && <div>
         <div className={"addButton"}>
-        <button class="gradient-button" onClick={() => setModalVacancyAddActive(true)}>Add Vacancy</button>
+        <button className="gradient-button" onClick={() => setModalVacancyAddActive(true)}>Add Vacancy</button>
         </div>
             <Modal active={modalVacancyAddActive} setActive={setModalVacancyAddActive}>
                 <VacancyAdd></VacancyAdd>

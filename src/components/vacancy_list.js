@@ -46,7 +46,7 @@ function VacancyForech(props) {
             <div className={"deleteButton"}>
                 <button className="gradient-button-delete" onClick={() => {     
                     refresh().then((response) => {
-                        getVacancy(response.data.access, vacancy.id);
+                        deleteVacancy(response.data.access, vacancy.id);
                     })
                 }}>Delete</button>
             </div>

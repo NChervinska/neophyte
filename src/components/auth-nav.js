@@ -12,11 +12,11 @@ const AuthNav = () => {
     if(!isAuth) {
         return (
             <div>
-                <button class="gradient-button" onClick={() => setModalRegistrationActive(true)}>Registration</button>
+                <button className="gradient-button" onClick={() => setModalRegistrationActive(true)}>Registration</button>
                 <Modal active={modalRegistrationActive} setActive={setModalRegistrationActive}>
                     <Registration></Registration>
                 </Modal> 
-                <button class="gradient-button" onClick={() => setModalLoginActive(true)}>Login</button>
+                <button className="gradient-button" onClick={() => setModalLoginActive(true)}>Login</button>
                 <Modal active={modalLoginActive} setActive={setModalLoginActive}>
                     <Login></Login>
                 </Modal> 
@@ -24,7 +24,7 @@ const AuthNav = () => {
         ); 
     }
     else{
-        return (<button class="gradient-button" onClick={() => {
+        return (<button className="gradient-button" onClick={() => {
             localStorage.removeItem("token");
             window.location.reload(); }
         }>Logout</button> );

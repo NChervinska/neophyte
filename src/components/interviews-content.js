@@ -13,7 +13,7 @@ const InterviewsContent = () => {
         (isAuth &&<div>
             <Link to="/screenCapture" className="btn btn-primary colored-button">To screen capturement</Link>
             <div className={"addButton"}>
-                <button class="gradient-button" onClick={() => setModalInterviewAddActive(true)}>Add Interview</button>
+                <button className="gradient-button" onClick={() => setModalInterviewAddActive(true)}>Add Interview</button>
             </div>
             <Modal active={modalInterviewAddActive} setActive={setModalInterviewAddActive}>
                 <InterviewAdd></InterviewAdd>

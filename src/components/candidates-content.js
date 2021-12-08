@@ -11,7 +11,7 @@ const CandidatesContent = () => {
     return (
         (isAuth &&<div>
             <div className={"addButton"}>
-            <button class="gradient-button" onClick={() => setModalCandidateAddActive(true)}>Add Candidate</button>
+            <button className="gradient-button" onClick={() => setModalCandidateAddActive(true)}>Add Candidate</button>
         </div>
             <Modal active={modalCandidateAddActive} setActive={setModalCandidateAddActive}>
                 <CandidateAdd></CandidateAdd>
