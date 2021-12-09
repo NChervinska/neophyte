@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/users';
+const URL = 'https://pacific-spire-69544.herokuapp.com/users/';
 
 export async function createUser(email, password, password2, first_name, last_name, access) {
     return await axios.post( URL, {
@@ -25,8 +25,16 @@ export async function getUsers(access){
     });
 }
 
-export async function getUser(access, id){
-    return await axios.get( URL + id + '/', {
+export async function getUser(access){
+    const parseJwt = (token) => {
+        try {
+            return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+            return null;
+        }
+    }; 
+    console.log(parseJwt(access));
+    return await axios.get( URL + parseJwt(access).user_id + '/', {
         headers: {
             Authorization: 'Bearer ' + access, 
             "Content-Type": "multipart/form-data",
@@ -50,7 +58,6 @@ export async function updateUser(id, email, password, password2, first_name, las
         password2: password2,
         first_name: first_name,
         last_name: last_name,
-        link: link,
         }, {headers: {  
             Authorization: "Bearer " + access,
             "Content-Type": "multipart/form-data",

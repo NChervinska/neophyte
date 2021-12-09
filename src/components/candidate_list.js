@@ -4,13 +4,6 @@ import "./vacancies-content.css"
 import {refresh} from '../client/auth_api';
 import {getCandidats, deleteCandidate} from '../client/candidat_api';
 import {decode as base64_decode, encode as base64_encode} from 'base-64';
-
-    async function getData(id) {
-        const response = await refresh(); 
-        console.log(id);
-        await deleteCandidate(response.data.access, id);
-        window.location.reload(); 
-    };
     
 export default class CandidateList extends React.Component {
     state = {
@@ -51,12 +44,10 @@ function CandidateForech(props) {
                 </tbody>
             </table>
             <div className={"updateButton"}>
-                <button className="gradient-button" onClick={getData()}>Update</button>
+                <button className="gradient-button">Update</button>
             </div>
             <div className={"deleteButton"}>
-                <button className="gradient-button-delete" onClick={
-                getData(candidate.id)
-                } >Delete</button>
+                <button className="gradient-button-delete" >Delete</button>
             </div>
         </div>
         
