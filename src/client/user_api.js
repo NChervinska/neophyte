@@ -50,7 +50,6 @@ export async function updateUser(id, email, password, password2, first_name, las
         password2: password2,
         first_name: first_name,
         last_name: last_name,
-        link: link,
         }, {headers: {  
             Authorization: "Bearer " + access,
             "Content-Type": "multipart/form-data",
