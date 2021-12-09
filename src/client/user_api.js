@@ -33,7 +33,6 @@ export async function getUser(access){
             return null;
         }
     }; 
-    console.log(parseJwt(access));
     return await axios.get( URL + parseJwt(access).user_id + '/', {
         headers: {
             Authorization: 'Bearer ' + access, 
@@ -51,16 +50,22 @@ export async function deleteUser(access, id){
     });
 }
 
-export async function updateUser(id, email, password, password2, first_name, last_name, access){
-    return await axios.put(URL + id + '/', {
+export async function updateUser(email, first_name, last_name, access){
+    const parseJwt = (token) => {
+        try {
+            return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+            return null;
+        }
+    }; 
+    return await axios.put(URL + parseJwt(access).user_id + '/', {
         email: email,
-        password: password,
-        password2: password2,
+        password: '',
+        password2: '',
         first_name: first_name,
         last_name: last_name,
         }, {headers: {  
-            Authorization: "Bearer " + access,
-            "Content-Type": "multipart/form-data",
+            Authorization: "Bearer " + access
         }, 
     });
 }

@@ -1,28 +1,34 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import "./profile-content.css"
-import {updateUser} from "../client/user_api"
+import {updateUser, getUser} from "../client/user_api"; 
+import {refresh} from "../client/auth_api";
+import {getVacancies} from '../client/vacancy_api';
+import {getInterviews} from '../client/interview_api';
+
 const ProfileContent = () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token"); 
+    
         const {
-            register: register1,
-            handleSubmit: handleSubmit1
+            register: register6,
+            handleSubmit: handleSubmit6
         } = useForm({
             defaultValues: {  // Acquire these values from server
-                name1: "bill",
-                surname1: "luo",
-                email1: "bluebill1049@hotmail.com"
+                name1: '',
+                surname1: '',
+                email1: ''
             }
         });
 
-        const onSubmitLog = (data) => {
-            async function getProfileInfo() {
-                const res = await updateUser(0, data.email1, data.oldPassword1, data.newPassword1, data.name1, data.surname1, token);
-                console.log(res.data);
-                localStorage.setItem("token", res.data.refresh);
-                window.location.reload();
+        const onSubmitLog = (data) => { 
+            console.log(data);
+            async function getData() {
+                const response = await refresh();
+                return updateUser(data.email1, data.name1, data.surname1, response.data.access);
             }
-            getProfileInfo();
+            getData().then(res => {
+                console.log(res.data);
+            });
         };
     const isAuth = token != null;
     return (
@@ -30,13 +36,13 @@ const ProfileContent = () => {
             <h1>Profile</h1>
             <div className={"centered-content"}>
                             <div className="row mt-2">
-                                <form key={6} onSubmit={handleSubmit1(onSubmitLog)}>
-                                <div className="col-md-12"><label className="labels">Name</label><input type="text" className="form-control" placeholder="first name" {...register1("name1", {required: true})} defaultValue=""/></div>
-                                <div className="col-md-12"><label className="labels">Surname</label><input type="text" className="form-control" defaultValue="" placeholder="surname" {...register1("surname1", {required: true})} /></div>
-                                <div className="col-md-12"><label className="labels">Email</label><input type="text" className="form-control" placeholder="Email" {...register1("email1", {required: true})} readOnly={true} defaultValue=""/></div>
-                                    <div className="col-md-12"><label className="labels">Old password</label><input type="password" className="form-control" placeholder="old password" {...register1("oldPassword1", {required: true})}  defaultValue=""/></div>
-                                    <div className="col-md-12"><label className="labels">New password</label><input type="password" className="form-control" placeholder="new password" {...register1("newPassword1", {required: true})}  defaultValue=""/></div>
-                               <p></p>
+                                <form key={6} onSubmit={handleSubmit6(onSubmitLog)}>
+                                <div className="col-md-12"><label className="labels">Name</label><input type="text" className="form-control" placeholder="first name" {...register6("name1", {required: true})} defaultValue=""/></div>
+                                <div className="col-md-12"><label className="labels">Surname</label><input type="text" className="form-control" defaultValue="" placeholder="surname" {...register6("surname1", {required: true})} /></div>
+                                <div className="col-md-12"><label className="labels">Email</label><input type="text" className="form-control" placeholder="Email" {...register6("email1", {required: true})} defaultValue=""/></div>
+                                    <div className="col-md-12"><label className="labels">Old password</label><input type="password" className="form-control" placeholder="old password" {...register6("oldPassword1", {required: true})}  defaultValue=""/></div>
+                                    <div className="col-md-12"><label className="labels">New password</label><input type="password" className="form-control" placeholder="new password" {...register6("newPassword1", {required: true})}  defaultValue=""/></div>
+                                <p></p>
                                     <input type="submit" value="Save info"/>
                                 </form>
         </div>
