@@ -32,7 +32,7 @@ export async function getVacancy(access, id){
 }
 
 export async function deleteVacancy(access, id){
-    return await axios.delete( URL + ":" + id + '/', {
+    return await axios.delete( URL + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access,
             "Content-Type": "multipart/form-data",
