@@ -42,7 +42,7 @@ export async function deleteCandidate(access, id){
 }
 
 export async function updateCandidate(id, email, first_name, last_name, sv_file, vacancy, access){
-    return await axios.put(URL +  + '/', {
+    return await axios.put(URL + id + '/', {
         email: email, 
         first_name: first_name, 
         last_name: last_name, 
