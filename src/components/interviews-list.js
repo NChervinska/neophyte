@@ -1,8 +1,5 @@
 import React from "react";
 import "./vacancy_list.css"
-import InterviewUpdate from "./interview_update";
-import Modal from '../modal_dialog/modal';
-import {useState} from 'react';
 import "./vacancies-content.css"
 import {refresh} from '../client/auth_api';
 import { getInterviews } from "../client/interview_api";
