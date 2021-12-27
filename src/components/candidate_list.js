@@ -17,8 +17,6 @@ export default class CandidateList extends React.Component {
     componentDidMount(){ 
         async function getData() {
             const response = await refresh();
-            var res = await getResult(2, response.data.access);
-            console.print(res);
             return getCandidats(response.data.access);
         }
         getData().then(res => {
