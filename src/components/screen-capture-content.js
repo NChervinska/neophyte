@@ -1,12 +1,17 @@
 import React from "react";
 import {refresh} from '../client/auth_api';
 import { postImage } from "../client/ii_api";
+import {useState} from 'react';
 
 const ScreenCaptureContent = () => {
 
     const token = localStorage.getItem("token");
     const isAuth = token != null;
     
+
+    const [id, setId] = useState('');
+
+
             window.addEventListener('load', startup, false);
             var width = 600;   
             var height = 600;    
@@ -76,8 +81,7 @@ const ScreenCaptureContent = () => {
                 var data = canvas.toDataURL('image/png');
                 async function getData() {
                   const response = await refresh();
-                  await postImage(2, data.replace(/^data:image\/(png|jpg);base64,/, ""), video.videoWidth, video.videoHeight, response.data.access);
-                  window.location.reload(); 
+                  await postImage(id, data.replace(/^data:image\/(png|jpg);base64,/, ""), video.videoWidth, video.videoHeight, response.data.access);
               } 
               getData();
               } else {
@@ -87,9 +91,13 @@ const ScreenCaptureContent = () => {
             
         
 
-
     return (
         (isAuth &&<div>
+
+          
+<input type="number" value={id} onChange={(event) => setId(event.target.value)} />
+
+
             <h1>Interview screen capturing</h1>
             <div>
             <button id="startbutton" className="gradient-button" 
@@ -97,20 +105,18 @@ const ScreenCaptureContent = () => {
             </button>
             <button className="gradient-button" onClick={(ev) => {
                     stop();
-                    ev.preventDefault();
                 }}>Stop Capture
             </button>
             </div>
-
+            
 
             <div>
                 <button className="gradient-button" onClick={(ev) => {
-                      timerId = setInterval(() => takepicture(), 5000);
+                      timerId = setInterval(() => takepicture(), 1000);
                   }}>Start Photo
                 </button>
                 <button id="cancelbutton" className="gradient-button" onClick={(ev) => {
                     clearInterval(timerId);
-                    ev.preventDefault();
                   }}>Stop Photo
                 </button>
 
