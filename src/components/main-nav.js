@@ -43,6 +43,14 @@ const MainNav = () => (
     >
     Profile
 </NavLink>
+      <NavLink
+          to="/ai-analysis"
+          exact
+          className="nav-link"
+          activeClassName="router-link-exact-active"
+      >
+          AI records
+      </NavLink>
   </div>
 );
 

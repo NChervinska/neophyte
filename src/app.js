@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { NavBar, Footer } from "./components";
-import { Home, Profile, Vacancies, Candidates, ScreenCapture, Interviews } from "./views";
+import { Home, Profile, Vacancies, Candidates, AIAnalysis, ScreenCapture, Interviews } from "./views";
 
 import "./app.css";
     
@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/profile" component={Profile} />
             <Route path="/interviews" component={Interviews} />
             <Route path="/screenCapture" component={ScreenCapture} />
+            <Route path="/ai-analysis" component={AIAnalysis} />
         </Switch>
       </div>  
       <Footer />

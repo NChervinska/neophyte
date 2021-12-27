@@ -8,4 +8,5 @@ import CandidatesContent from "./candidates-content";
 import InterviewsContent from "./interviews-content";
 import ProfileContent from "./profile-content";
 import ScreenCaptureContent from "./screen-capture-content";
-export { HomeContent, VacanciesContent, CandidatesContent, InterviewsContent, ProfileContent,ScreenCaptureContent, Footer, Hero, Loading, NavBar };
+import AIAnalysisContent from"./ai-analysis-content";
+export { HomeContent, VacanciesContent, CandidatesContent, AIAnalysisContent, InterviewsContent, ProfileContent,ScreenCaptureContent, Footer, Hero, Loading, NavBar };
