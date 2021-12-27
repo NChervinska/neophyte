@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/auth/';
+const URL = 'http://0bef-159-224-64-142.ngrok.io/auth/';
 
 export async function login(email, password) {
     return await axios.post( URL + 'login/', { 

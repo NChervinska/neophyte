@@ -7,6 +7,7 @@ import {decode as base64_decode} from 'base-64';
 import Modal from '../modal_dialog/modal';
 import CandidateAdd from './candidate_add';
 import {useState} from 'react';
+import { getResult } from "../client/ii_api";
     
 export default class CandidateList extends React.Component {
     state = {
@@ -16,6 +17,8 @@ export default class CandidateList extends React.Component {
     componentDidMount(){ 
         async function getData() {
             const response = await refresh();
+            var res = await getResult(2, response.data.access);
+            console.print(res);
             return getCandidats(response.data.access);
         }
         getData().then(res => {

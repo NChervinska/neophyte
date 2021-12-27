@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/interviews/';
+const URL = 'http://0bef-159-224-64-142.ngrok.io/interviews/';
 
 export async function createInterview(candidate, datetime, link, access) {
     return await axios.post( URL, {
