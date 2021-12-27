@@ -4,4 +4,5 @@ import Candidates from "./candidates";
 import Profile from "./profile";
 import Interviews from "./interviews"
 import ScreenCapture from "./screen-capture"
-export { Vacancies, Home, Candidates, Interviews, ScreenCapture,  Profile };
+import AIAnalysis from "./ai-analysis"
+export { Vacancies, Home, Candidates, AIAnalysis, Interviews, ScreenCapture,  Profile };
