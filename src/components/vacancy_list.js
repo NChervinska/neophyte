@@ -1,6 +1,6 @@
 import React from "react";
 import {refresh} from '../client/auth_api';
-import { getVacancies, deleteVacancy, getVacancy } from "../client/vacancy_api";
+import { getVacancies, deleteVacancy} from "../client/vacancy_api";
 import "./vacancy_list.css"
 import Modal from '../modal_dialog/modal';
 import {useState} from 'react';
@@ -31,6 +31,7 @@ export default class VacancyList extends React.Component {
 }
 
 function VacancyForech(props) {
+    
     const [modalVacancyUpdateActive, setModalVacancyUpdateActive] = useState(false);
     const content = props.vacancies.map((vacancy) =>
         <div key={vacancy.id}>

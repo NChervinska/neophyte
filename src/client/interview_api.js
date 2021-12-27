@@ -23,7 +23,7 @@ export async function getInterviews(access){
     });
 }
 
-export async function getCandidat(access, id){
+export async function getInterview(access, id){
     return await axios.get( URL + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access, 
@@ -32,7 +32,7 @@ export async function getCandidat(access, id){
     });
 }
 
-export async function deleteCandidate(access, id){
+export async function deleteInterview(access, id){
     return await axios.delete( URL + id + '/', {
         headers: {
             Authorization: 'Bearer ' + access,
@@ -41,7 +41,7 @@ export async function deleteCandidate(access, id){
     });
 }
 
-export async function updateCandidate(id, candidate, datetime, link, access){
+export async function updateInterview(id, candidate, datetime, link, access){
     return await axios.put(URL + id + '/', {
         candidate: candidate,
         datetime: datetime,

@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {refresh} from '../client/auth_api';
 import { createCandidats } from "../client/candidat_api";
 import "./login.css";
-import {decode as base64_decode, encode as base64_encode} from 'base-64';
+import {encode as base64_encode} from 'base-64';
 
 function CandidateAdd () {
     const { register: register4, handleSubmit: handleSubmit4} = useForm();
