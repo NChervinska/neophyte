@@ -24,6 +24,49 @@ export default class CandidateList extends React.Component {
         return(
             <div>
                 <CandidateForech candidates={this.state.candidates} />
+                <div className={"updateButton"}>
+                    <button className="gradient-button" onClick={() => {
+                        var res = this.state.candidates;
+                        res.sort(function(a,b){
+                            if (a.first_name > b.first_name) {
+                                return 1;
+                            }
+                            if (a.first_name < b.first_name) {
+                                return -1;
+                            }
+                        return 0;
+                    }); 
+                    this.setState({candidates: res})
+                }}>First Name</button>
+
+                <button className="gradient-button" onClick={() => {
+                        var res = this.state.candidates;
+                        res.sort(function(a,b){
+                            if (a.last_name > b.last_name) {
+                                return 1;
+                            }
+                            if (a.last_name < b.last_name) {
+                                return -1;
+                            }
+                        return 0;
+                    }); 
+                    this.setState({candidates: res})
+                }}>Last Name</button>
+
+                <button className="gradient-button" onClick={() => {
+                        var res = this.state.candidates;
+                        res.sort(function(a,b){
+                            if (a.vacancy > b.vacancy) {
+                                return 1;
+                            }
+                            if (a.vacancy < b.vacancy) {
+                                return -1;
+                            }
+                        return 0;
+                    }); 
+                    this.setState({candidates: res})
+                }}>Vacancy</button>
+                </div>
             </div>
         );
     }
