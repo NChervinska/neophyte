@@ -3,7 +3,10 @@ import "./vacancy_list.css"
 import "./vacancies-content.css"
 import {refresh} from '../client/auth_api';
 import {getCandidats, deleteCandidate} from '../client/candidat_api';
-import {decode as base64_decode, encode as base64_encode} from 'base-64';
+import {decode as base64_decode} from 'base-64';
+import Modal from '../modal_dialog/modal';
+import CandidateAdd from './candidate_add';
+import {useState} from 'react';
     
 export default class CandidateList extends React.Component {
     state = {
@@ -73,6 +76,8 @@ export default class CandidateList extends React.Component {
 }
 
 function CandidateForech(props) {
+    const [modalCandidateAddActive, setModalCandidateAddActive] = useState(false);
+
     const content = props.candidates.map((candidate) =>
         <div key={candidate.id}>
             <table className="styled-table">
@@ -87,10 +92,18 @@ function CandidateForech(props) {
                 </tbody>
             </table>
             <div className={"updateButton"}>
-                <button className="gradient-button">Update</button>
+                <button className="gradient-button" onClick={() => setModalCandidateAddActive(true)}>Update</button>
             </div>
+            <Modal active={modalCandidateAddActive} setActive={setModalCandidateAddActive}>
+                <CandidateAdd></CandidateAdd>
+            </Modal> 
             <div className={"deleteButton"}>
-                <button className="gradient-button-delete" >Delete</button>
+                <button className="gradient-button-delete" onClick={() => {     
+                    refresh().then((response) => {
+                        deleteCandidate(response.data.access, candidate.id)
+                        .then(()=> {window.location.reload();});
+                    })
+                }}>Delete</button>
             </div>
         </div>
         

@@ -1,6 +1,5 @@
 import React from "react";
 import {refresh} from '../client/auth_api';
-import {getVacancies} from '../client/vacancy_api';
 
 const ScreenCaptureContent = () => {
 
@@ -46,12 +45,16 @@ const ScreenCaptureContent = () => {
               .catch(function(err) {
                 console.log("An error occurred: " + err);
               });
-          
-              
         
               clearphoto();
             }
           
+            function stop(){
+              let tracks = video.srcObject.getTracks();
+
+              tracks.forEach(track => track.stop());
+              video.srcObject = null;
+            }
           
             function clearphoto() {
               var context = canvas.getContext('2d');
@@ -83,20 +86,32 @@ const ScreenCaptureContent = () => {
         (isAuth &&<div>
             <h1>Interview screen capturing</h1>
             <div>
-                <button id="startbutton" className="gradient-button" onClick={(ev) => {
-                    timerId = setInterval(() => takepicture(), 1000);
+            <button id="startbutton" className="gradient-button" 
+                onClick={(ev) => {window.location.reload();}}>Start Capture
+            </button>
+            <button className="gradient-button" onClick={(ev) => {
+                    stop();
                     ev.preventDefault();
-                }}>Start</button>
+                }}>Stop Capture
+            </button>
+            </div>
+
+
+            <div>
+                <button className="gradient-button" onClick={(ev) => {
+                      timerId = setInterval(() => takepicture(), 1000);
+                  }}>Start Photo
+                </button>
                 <button id="cancelbutton" className="gradient-button" onClick={(ev) => {
                     clearInterval(timerId);
-                    window.removeEventListener('canplay', startup, false);
                     ev.preventDefault();
-                }}>Cancel</button>
+                  }}>Stop Photo
+                </button>
+
                 <div className="camera">
                 <video id="video">Video stream not available.</video>
                 </div>
-                <canvas id="canvas"> 
-                </canvas>
+                <canvas id="canvas"></canvas>
             </div>
         </div>)
     );

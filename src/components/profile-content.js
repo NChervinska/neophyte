@@ -1,10 +1,8 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import "./profile-content.css"
-import {updateUser, getUser} from "../client/user_api"; 
+import {updateUser} from "../client/user_api"; 
 import {refresh} from "../client/auth_api";
-import {getVacancies} from '../client/vacancy_api';
-import {getInterviews} from '../client/interview_api';
 
 const ProfileContent = () => {
     const token = localStorage.getItem("token"); 
