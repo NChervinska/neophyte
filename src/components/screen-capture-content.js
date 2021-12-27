@@ -1,5 +1,6 @@
 import React from "react";
 import {refresh} from '../client/auth_api';
+import { postImage } from "../client/ii_api";
 
 const ScreenCaptureContent = () => {
 
@@ -8,7 +9,7 @@ const ScreenCaptureContent = () => {
     
             window.addEventListener('load', startup, false);
             var width = 600;   
-            var height = 0;    
+            var height = 600;    
           
             var streaming = false;
           
@@ -68,12 +69,17 @@ const ScreenCaptureContent = () => {
             function takepicture() {
               var context = canvas.getContext('2d');
               if (width && height) {
-                canvas.width = width;
-                canvas.height = height;
-                context.drawImage(video, 0, 0, width, height);
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
               
                 var data = canvas.toDataURL('image/png');
-                // отправка на сервер
+                async function getData() {
+                  const response = await refresh();
+                  await postImage(2, data.replace(/^data:image\/(png|jpg);base64,/, ""), video.videoWidth, video.videoHeight, response.data.access);
+                  window.location.reload(); 
+              } 
+              getData();
               } else {
                 clearphoto();
               }
@@ -99,7 +105,7 @@ const ScreenCaptureContent = () => {
 
             <div>
                 <button className="gradient-button" onClick={(ev) => {
-                      timerId = setInterval(() => takepicture(), 1000);
+                      timerId = setInterval(() => takepicture(), 5000);
                   }}>Start Photo
                 </button>
                 <button id="cancelbutton" className="gradient-button" onClick={(ev) => {

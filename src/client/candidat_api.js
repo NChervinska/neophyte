@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/candidates/';
+const URL = 'http://0bef-159-224-64-142.ngrok.io/candidates/';
 
 export async function createCandidats(email, first_name, last_name, sv_file, vacancy, access) {
     return await axios.post( URL, {

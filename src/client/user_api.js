@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://pacific-spire-69544.herokuapp.com/users/';
+const URL = 'http://0bef-159-224-64-142.ngrok.io/users/';
 
 export async function createUser(email, password, password2, first_name, last_name, access) {
     return await axios.post( URL, {
